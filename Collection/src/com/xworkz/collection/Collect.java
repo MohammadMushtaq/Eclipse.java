@@ -1,7 +1,10 @@
 package com.xworkz.collection;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
+import java.util.Iterator;
+
 
 
 
@@ -37,7 +40,7 @@ public class Collect {
 		String name27 = "deepevali";
 		String name28 = "rangoli";
 		String name29 = "deepevali";
-		String name30= "deepevali";
+		String name30= "MAHASHIVRATRI";
 		String name31= "ram navami";
 		String name32 = "deepevali";
 		String name33 = "deepevali";
@@ -69,7 +72,10 @@ public class Collect {
 		String name59 = "childrens day";
 		String name60 = "hanuman jyanti";
 		
-		Collection coll = new ArrayList();
+		Collection<String> coll = new ArrayList<String>();
+		
+		
+		
 		coll.add(name1);
 		coll.add(name2);
 		coll.add(name3);
@@ -130,6 +136,18 @@ public class Collect {
 		coll.add(name58);
 		coll.add(name59);
 		coll.add(name60);
+		Iterator<String> exists=coll.iterator();
+
+	
+		while (exists.hasNext()) {
+		//	System.out.println(exists.hasNext());
+			System.out.println(exists.next());
+		}
+		coll.remove("MAHASHIVRATRI");
+		System.out.println(coll);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~");
+		
+		
 		
 		String actor1="salman";
 		String actor2="sharuk";
@@ -253,6 +271,16 @@ public class Collect {
 		c.add(actor59);
 		c.add(actor60);
 		
+		Iterator<String> y = c.iterator();
+		while(y.hasNext()) {
+			System.out.println(y.next());
+		}
+		c.remove("bobby");
+		System.out.println(c);
+		System.out.println("~~~~~~~~~~~~~~~~");
+		
+		
+		
 		String bike1= "honda";
 		String bike2= "activa";
 		String bike3= "pleasure";
@@ -281,7 +309,7 @@ public class Collect {
 		String bike26= "royal enfield";
 		String bike27= "r15";
 		String bike28= "activa";
-		String bike29= "activa";
+		String bike29= "avenger";
 		String bike30= "activa";
 		String bike31= "hf delux";
 		String bike32= "activa";
@@ -375,6 +403,14 @@ public class Collect {
 		b.add(bike58);
 		b.add(bike59);
 		b.add(bike60);
+		Iterator<String> k= b.iterator();
+		while(k.hasNext()) {
+			System.out.println(k.next());		
+		}
+		b.remove(actor30);
+		System.out.println(b);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
+		
 		
 		String lipstic1="loreal";
 		String lipstic2="crim lip";
@@ -500,6 +536,15 @@ public class Collect {
 		l.add(lipstic59);
 		l.add(lipstic60);
 		
+		Iterator<String> i = l.iterator();
+		while(i.hasNext()) {
+			System.out.println(i.next());
+		}
+		l.remove(actor30);
+		System.out.println(i);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
+		
+		
 		String langauage1 = ("hindi");
 		String langauage2 = ("urdu");
 		String langauage3 = ("kannada");
@@ -622,10 +667,13 @@ public class Collect {
 		lang.add(langauage59);
 		lang.add(langauage60);	
 	
-		
-		
-		
-		
+		Iterator<String> vag= lang.iterator();
+		while(vag.hasNext()) {
+		System.out.println(vag.next());	
+		}
+		lang.remove(actor30);
+		System.out.println(vag);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
 		
 		String movie1="jai bheem";
 		String movie2="doctor strange";
@@ -748,6 +796,13 @@ public class Collect {
 		mov.add(movie58);
 		mov.add(movie59);
 		mov.add(movie60);
+		Iterator<String> d= mov.iterator();
+		while(d.hasNext()) {
+			System.out.println(d.next());
+		}
+		mov.remove(movie30);
+		System.out.println(mov);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
 		
 		String webSeries1="the family man";
 		String webSeries2="scam";
@@ -811,6 +866,7 @@ public class Collect {
 		String webSeries60="Yeh Hai Meri Family ";	
 		
 		Collection web = new ArrayList();
+		
 		web.add(webSeries1);
 		web.add(webSeries2);
 		web.add(webSeries3);
@@ -872,6 +928,15 @@ public class Collect {
 		web.add(webSeries58);
 		web.add(webSeries59);
 		web.add(webSeries60);
+		
+		Iterator<String> w= web.iterator();
+		while(w.hasNext()) {
+			System.out.println(w.next());
+		}
+		web.remove(webSeries30);
+		System.out.println(web);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
+		
 		
 		String cites1 = "bangalore";
 		String cites2 = "bellary";
@@ -995,7 +1060,15 @@ public class Collect {
 	city.add(cites58);
 	city.add(cites59);
 	city.add(cites60);
-
+	
+	Iterator<String> ci = city.iterator();
+	while(ci.hasNext()) {
+		System.out.println(ci.next());
+	}
+	city.remove(cites30);
+	System.out.println(city);
+	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
+	
 	String car1 ="lamrogini";
 	String car2 ="porch";
 	String car3 ="swift";
@@ -1118,6 +1191,14 @@ public class Collect {
 	car.add(car58);
 	car.add(car59);
 	car.add(car60);
+	
+	Iterator<String> ca= car.iterator();
+	while(ca.hasNext()) {
+		System.out.println(ca.next());
+	}
+	car.remove(car30);
+	System.out.println(car);
+	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
 	
 	String sweet1 = "goolab jamun";
 	String sweet2 = "mishra pedha";
@@ -1242,19 +1323,13 @@ public class Collect {
 	sweet.add(sweet59);
 	sweet.add(sweet60);
 	
-		
-		
-		
-		
-		System.out.println(lipstic55);	
-		System.out.println(l.add(bike60));
-		System.out.println(b.size());		
-		System.out.println(coll.size());
-		System.out.println(c.size());
-		System.out.println(mov.size());
-		System.out.println(sweet.size());
-		System.out.println(car.size());
-		System.out.println(mov.size());
+	Iterator<String> swee= sweet.iterator();
+	while(swee.hasNext()) {
+		System.out.println(swee.next());
+	}
+	sweet.remove(sweet30);
+	System.out.println(sweet);
+	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 	
 
