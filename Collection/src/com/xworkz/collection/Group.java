@@ -14,6 +14,7 @@ public class Group {
 		String actor5="puneet";
 		String actor6="akshay";
 		String actor7="katrina";
+		String actor8="raju";
 		
 		Collection<String> collect = new ArrayList<String>();
 		collect.add(actor1);
@@ -23,9 +24,8 @@ public class Group {
 		collect.add(actor5);
 		collect.add(actor6);
 		collect.add(actor7);
+		collect.add(actor8);
 	
-		collect.remove(actor4);
-		System.out.println(collect);
 		
 		
 		Iterator<String> exists=collect.iterator();
@@ -35,6 +35,9 @@ public class Group {
 		System.out.println(exists.next());
 		System.out.println(exists.hasNext());
 		System.out.println(exists.next());*/
+		
+		int size= collect.size();
+		System.out.println(size);
 		
 		
 		
