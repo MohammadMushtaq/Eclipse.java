@@ -1,7 +1,10 @@
 package com.xworkz.jdbc.dao;
 
 import java.sql.Connection;
+
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -9,44 +12,104 @@ import com.xworkz.jdbc.DBconstants.DBConstants;
 import com.xworkz.jdbc.dto.IceCreamDto;
 
 public class IceCreamDao {
+	Connection mysql;
 public boolean save(IceCreamDto iceCreamDto) {
-		
+	
 		try {
-			Class.forName(DBConstants.DRIVER);
-			Connection mysql=DriverManager.getConnection(DBConstants.MY_URL,DBConstants.USERNAME,DBConstants.PASSWORD);
+	
+			DriverManager.getConnection(DBConstants.MY_URL,DBConstants.USERNAME,DBConstants.PASSWORD);
+			if(!mysql.isClosed()) {
+		//	String sql="insert  into icecreamdetails  values("+iceCreamDto.getId()+",'"+iceCreamDto.getFlavour()+"','"+iceCreamDto.getName()+"',"+iceCreamDto.getPrice()+")";
+		//	Statement s=mysql.createStatement();
+			String sql = "insert into city_details values(?,?,?,?)";
+			PreparedStatement preparedStatement = mysql.prepareStatement(sql);
+			preparedStatement.setObject(1, iceCreamDto.getId());
+			preparedStatement.setObject(2, iceCreamDto.getName());
+			preparedStatement.setObject(3, iceCreamDto.getFlavour());
+			preparedStatement.setObject(4, iceCreamDto.getPrice());
 			
-			String sql="insert  into icecreamdetails  values("+iceCreamDto.getId()+",'"+iceCreamDto.getFlavour()+"','"+iceCreamDto.getName()+"',"+iceCreamDto.getPrice()+")";
-			Statement s=mysql.createStatement();
-			System.out.println(sql);
-			int rowEffected=s.executeUpdate(sql);
-			
+			int rowEffected=preparedStatement.executeUpdate();
+			System.out.println(rowEffected);
 			if(rowEffected==1) return true;
-			
-		} catch (ClassNotFoundException e) {
-			
-			e.printStackTrace();
+			}
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+		}finally {	 
+			try {
+				mysql.close();
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
 		}
 		return false;		
 	}public boolean deleteById(int id) {
 		try {
-			Class.forName(DBConstants.DRIVER);
+			
 			Connection mysql=DriverManager.getConnection(DBConstants.MY_URL,DBConstants.USERNAME,DBConstants.PASSWORD);
 			Statement statement=mysql.createStatement();
-			 String sql = "delete from icecreamdetails where c_id=1";
+			 String sql = "delete from icecreamdetails where c_id="+id;
 			int rowDelete=statement.executeUpdate(sql);
 			return true;
 				 	
-		} catch (ClassNotFoundException e) {
-			
-			e.printStackTrace();
-		} catch (SQLException e) {
+		}  catch (SQLException e) {
 			
 			e.printStackTrace();
 		}
 		return false;
+	}	public boolean displayById(int gid){
+		
+		try {
+			Connection mysql=DriverManager.getConnection(DBConstants.MY_URL,DBConstants.USERNAME,DBConstants.PASSWORD);
+		//	DBUtil.connectingmysql();
+			String sql="select*from icecreamdetails where c_id="+gid;
+			PreparedStatement stmt = mysql.prepareStatement(sql);
+			ResultSet result=stmt.executeQuery();
+			if(result.next()) {
+				Object obj1=result.getObject(1);
+				System.out.println(obj1);
+				Object obj2=result.getObject(2);
+				System.out.println(obj2);
+				Object obj3=result.getObject(3);
+				System.out.println(obj3);
+				Object obj4=result.getObject(4);
+				System.out.println(obj4);
+				
+			}
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+		public boolean displayAll(){
+			
+			try {
+				Connection mysql=DriverManager.getConnection(DBConstants.MY_URL,DBConstants.USERNAME,DBConstants.PASSWORD);
+			//	DBUtil.connectingmysql();
+				String sql="select*from icecreamdetails";
+				PreparedStatement stmt = mysql.prepareStatement(sql);
+				ResultSet result=stmt.executeQuery();
+				while(result.next()) {
+					Object obj1=result.getObject(1);
+					System.out.println(obj1);
+					Object obj2=result.getObject(2);
+					System.out.println(obj2);
+					Object obj3=result.getObject(3);
+					System.out.println(obj3);
+					Object obj4=result.getObject(4);
+					System.out.println(obj4);
+					
+				}
+				return true;
+			} catch (SQLException e) {
+				
+				e.printStackTrace();
+			}
+		return false;
+		
 	}
 
 }

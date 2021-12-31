@@ -14,13 +14,19 @@ public class StateScanner {
 	StateDto stateDto3 = new StateDto(4,"maharasta",91,"mumbai");
 	
 	StateDao stateDao = new StateDao();
-/*	stateDao.save(stateDto);
-	stateDao.save(stateDto1);
-	stateDao.save(stateDto2);
-	stateDao.save(stateDto3);*/
+//	stateDao.save(stateDto);
+//	stateDao.save(stateDto1);
+//	stateDao.save(stateDto2);
+//	stateDao.save(stateDto3);
 	
-	boolean del=stateDao.deleteById(1);
-	System.out.println(del);
+//	boolean del=stateDao.deleteById(1);
+//	System.out.println(del);
+	
+	boolean dis=stateDao.displayById(2);
+	System.out.println(dis);
+//	boolean dis=stateDao.displayAll();
+//System.out.println(dis);
+
 
 	}
 

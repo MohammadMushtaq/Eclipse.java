@@ -12,15 +12,19 @@ public class CountryScanner {
 		CountryDto countryDto3 = new  CountryDto(4,"USA",81,"southamerica");
 		
 		CountryDao countryDao = new CountryDao();
-	/*	countryDao.save(countryDto);
-		countryDao.save(countryDto1);
-		countryDao.save(countryDto2);
-		countryDao.save(countryDto3);*/
+//		countryDao.save(countryDto);
+//		countryDao.save(countryDto1);
+//		countryDao.save(countryDto2);
+//		countryDao.save(countryDto3);
 		
+		boolean dis=countryDao.displayById(4);
+		System.out.println(dis);
+	//		boolean dis1=countryDao.displayAll();
+	//		System.out.println(dis1);
 		
+	//	boolean del = countryDao.deleteById(1);
+	//	System.out.println(del);
 		
-		boolean del = countryDao.deleteById(1);
-		System.out.println(del);
 
 	}
 

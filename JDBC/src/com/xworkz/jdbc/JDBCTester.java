@@ -31,7 +31,8 @@ public class JDBCTester {
 				String sql6="insert  into clubDetails(cid,cname,clocation,cbouncers)values(8,'club8','nelamangla',9)";
 				String sql7="insert  into clubDetails(cid,cname,clocation,cbouncers)values(10,'nightclub9','shivaji nagar',10)";
 				Statement statement=mysql.createStatement();
-				statement.execute(sql7);
+				boolean roweffected=statement.execute(sql7);
+				System.out.println(roweffected);
 				System.out.println(sql7);
 			//	System.out.println(sql1);
 			//	System.out.println(sql2);
@@ -49,9 +50,15 @@ public class JDBCTester {
 			
 			System.out.println();
 		}finally {
-			if(mysql!=null) {
+		 
+				try {
+					mysql.close();
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
 				System.out.println();
-			}
+			
 		}
 		
 		
